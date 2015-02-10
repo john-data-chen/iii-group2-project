@@ -18,7 +18,7 @@ group = ['0050','4938','3481','2330','2303','2882','2357','1303','2883',\
 
 for stock in group:   # 每個代碼新建一個txt
     bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w') # 改成format(stock) + 檔名.txt
-    for year in range(2013,2014): # 2014年 - 1911 = 民國103年
+    for year in range(2004,2015): # 2014年 - 1911 = 民國103年
         for a in range(1,13): # 1~12月
             if a < 10: # 如果是1~9月前面加0，01~09
                 month = "0" + str(a)
@@ -30,8 +30,14 @@ for stock in group:   # 每個代碼新建一個txt
             # print res.encoding # 找出網頁編碼
             soup = BeautifulSoup(res.text.encode('ISO-8859-1'))
 
+            # 只有第1年1月要有表頭：日期 成交股數...etc，其他月都必須去掉
+            if year == 2004 and a == 1:
+                index = 0 # 要抓表頭
+            else:
+                index = 9 # 去掉表頭
+
             counter = 0
-            for i in soup.select(".basic2 td"): # 更改標籤
+            for i in soup.select(".basic2 td")[index:]: # index控制表頭的抓下或去除
                 bid_detail.write(i.text.strip().encode('utf-8') + " "), # 每次寫入時以空白隔開, ","代表連續寫不換行
                 print i.text,
                 counter += 1 # 每寫一格，counter + 1
@@ -39,9 +45,8 @@ for stock in group:   # 每個代碼新建一個txt
                     bid_detail.write("\n"), # 換行
                     print ""
                     counter = 0 # 歸零重來
-                    # 日期 成交股數...這表頭每個月前頭都會出現一次，是可以手動刪除，但為了之後方便，應該要改
+            time.sleep(3)
 
-# 提示結束, 關閉寫檔, delay
+# 提示結束, 關閉寫檔
 print "清單產生完畢"
 bid_detail.close()
-time.sleep(5)
