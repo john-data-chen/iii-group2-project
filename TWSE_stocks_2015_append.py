@@ -19,9 +19,9 @@ group = ['0050','1101','1102','1216','1301','1303','1326',\
          '6505','9904']
 
 for stock in group:   # 每個代碼新建一個txt
-    bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w') # 改成format(stock) + 檔名.txt
-    for year in range(2004,2015): # 2014年 - 1911 = 民國103年, 日期：2004~2014
-        for a in range(1,13): # 1~12月
+    bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'a') # 改為'a'附加模式，2015的資料寫在最後
+    for year in range(2015,2016): # 2015年
+        for a in range(1,2): # 現在是2月
             if a < 10: # 如果是1~9月前面加0，01~09
                 month = "0" + str(a)
             else:
@@ -32,14 +32,8 @@ for stock in group:   # 每個代碼新建一個txt
             # print res.encoding # 找出網頁編碼
             soup = BeautifulSoup(res.text.encode('ISO-8859-1'))
 
-            # 只有第1年1月要有表頭：日期 成交股數...etc，其他月都必須去掉
-            if year == 2004 and a == 1:
-                index = 0 # 要抓表頭
-            else:
-                index = 9 # 去掉表頭
-
             counter = 0
-            for i in soup.select(".basic2 td")[index:]: # index控制表頭的抓下或去除
+            for i in soup.select(".basic2 td")[9:]: # 去掉前9個表頭
                 bid_detail.write(i.text.strip().encode('utf-8') + " "), # 每次寫入時以空白隔開, ","代表連續寫不換行
                 print i.text,
                 counter += 1 # 每寫一格，counter + 1
