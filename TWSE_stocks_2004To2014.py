@@ -1,4 +1,6 @@
 #! coding=UTF-8
+# 本程式目的為抓取證交所0050及其成分股共51支股票從2004~2014年每日的股價資料
+# 2015年的資料請改用2015_append.py 抓最新的資料
 __author__ = 'john.chen'
 
 import requests, time, os
@@ -20,6 +22,7 @@ group = ['0050','1101','1102','1216','1301','1303','1326',\
 
 for stock in group:   # 每個代碼新建一個txt
     bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w') # 改成format(stock) + 檔名.txt
+    print "現在寫的是" + stock
     for year in range(2004,2015): # 2014年 - 1911 = 民國103年, 日期：2004~2014
         for a in range(1,13): # 1~12月
             if a < 10: # 如果是1~9月前面加0，01~09

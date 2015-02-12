@@ -1,4 +1,5 @@
 # coding=utf-8
+# 本程式目的為抓取期交所每日外幣參考匯率
 __author__ = 'john.chen'
 
 import requests, os
