@@ -21,7 +21,7 @@ group = ['0050','1101','1102','1216','1301','1303','1326',\
          '6505','9904']
 
 for stock in group:   # 每個代碼新建一個txt
-    bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w') # 改成format(stock) + 檔名.txt
+    bid_detail = open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w') # 改成format(stock) + 檔名.txt
     print "現在處理的是" + stock
     for year in range(2004,2015): # 2014年 - 1911 = 民國103年, 日期：2004~2014
         for a in range(1,13): # 1~12月
