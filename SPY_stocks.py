@@ -30,7 +30,7 @@ f = open('SPY_stocks/SPY_list.csv', 'r')
 file_content = f.readlines()
 # counter從1開始
 counter = 1;
-# 提示有多少股價要下載
+# 提示有幾隻股票要下載
 print "總共有 %d 股票的資料會被下載" % len(file_content)
 
 # 讀取股票代號

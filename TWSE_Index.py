@@ -1,5 +1,7 @@
 #! coding:utf-8
 # 本程式目的為抓取台股大盤指數
+__author__ = 'john.chen'
+
 import requests
 import time
 from bs4 import BeautifulSoup

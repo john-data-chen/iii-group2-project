@@ -1,27 +1,35 @@
 #! coding=UTF-8
 # 本程式目的為抓取證交所0050及其成分股共51支股票從2015年最新的單日股價資料
+# 改版目的：可讀取0050_ticker_list.csv中的股號，成分股若變動只需改csv，不用改程式
 __author__ = 'john.chen'
 
-import requests, os
+import requests, time, os
 from bs4 import BeautifulSoup
 
 # 要是沒有這個資料夾，新建一個
 if not os.path.exists("TWSE_Stocks"):
     os.mkdir("TWSE_Stocks")
 
-# 股票代碼表，按照順序重排
-group = ['0050','1101','1102','1216','1301','1303','1326',\
-         '1402','2002','2105','2207','2227','2301','2303',\
-         '2308','2311','2317','2325','2330','2354','2357',\
-         '2382','2395','2408','2409','2412','2454','2474',\
-         '2498','2801','2880','2881','2882','2883','2884',\
-         '2885','2886','2887','2890','2891','2892','2912',\
-         '3008','3045','3474','3481','4904','4938','5880',\
-         '6505','9904']
+# 新增全域變數給檔案處理
+global f
+# 讀取成分股列表
+f = open('TWSE_Stocks/0050_ticker_list.csv', 'r')
+# 讀取有幾列，代表有幾支成分股
+file_content = f.readlines()
+# counter從1開始
+counter = 1;
+# 提示有幾隻股票要下載
+print "總共有 %d 股票的資料會被下載" % len(file_content)
 
-for stock in group:   # 每個代碼新建一個txt
-    bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'w')
-    print "現在處理的是" + stock
+# 印出file_content後發現'3474\n'每個元素後都有換行符號 \n，這會造成寫檔錯誤
+#print file_content
+
+for ticker in file_content:
+    # 將代號後面的換行符號 \n 去掉
+    ticker = ticker.strip()
+    # 每個代碼新建一個txt
+    bid_detail = open("TWSE_Stocks/" + ticker + ".txt",'w')
+    print "現在處理的是" + ticker
     for year in range(2015,2016): # 2015年
         for a in range(2,3): # 現在是2月
             if a < 10: # 如果是1~9月前面加0，01~09
@@ -30,7 +38,7 @@ for stock in group:   # 每個代碼新建一個txt
                 month = a # 10以上就原樣輸出
 
             url = "http://www.twse.com.tw/ch/trading/exchange/STOCK_DAY/genpage/Report{}{}/{}{}_F3_1_8_{}.php?STK_NO={}&myear={}&mmon={}#"
-            res = requests.get(url.format(year,month,year,month,stock,stock,year,month)) # {}放參數的意思，year：年，month：月，stock：股票代號
+            res = requests.get(url.format(year,month,year,month,ticker,ticker,year,month)) # {}放參數的意思，year：年，month：月，stock：股票代號
             # print res.encoding # 找出網頁編碼
             soup = BeautifulSoup(res.text.encode('ISO-8859-1'))
 
