@@ -19,8 +19,6 @@ f = open('TWSE_Stocks/0050_ticker_list.csv', 'r')
 file_content = f.readlines()
 # counter從1開始
 counter = 1;
-# 提示有幾隻股票要下載
-print "總共有 %d 股票的資料會被下載" % len(file_content)
 
 # 印出file_content後發現'3474\n'每個元素後都有換行符號 \n，這會造成寫檔錯誤
 #print file_content
@@ -31,7 +29,10 @@ for ticker in file_content:
     # 每個代碼新建一個txt
     bid_detail = open("TWSE_Stocks/" + ticker + ".txt",'w')
 
-    print "現在處理的是" + ticker
+    # 提示現在下載到哪一隻股票
+    print "正下載 %s (%d out of %d)" % (ticker, counter, len(file_content))
+    # counter + 1 = 下一隻股票
+    counter += 1
     for year in range(2004,2015): # 2014年 - 1911 = 民國103年, 日期：2004~2014
         for a in range(1,13): # 1~12月
             if a < 10: # 如果是1~9月前面加0，01~09
@@ -50,17 +51,20 @@ for ticker in file_content:
             else:
                 index = 9 # 去掉表頭
 
-            counter = 0
+            counter2 = 0
             for i in soup.select(".basic2 td")[index:]: # index控制表頭的抓下或去除
                 bid_detail.write(i.text.strip().encode('utf-8') + " "), # 每次寫入時以空白隔開, ","代表連續寫不換行
                 print i.text,
-                counter += 1 # 每寫一格，counter + 1
-                if counter == 9: # 當寫到第9格的時候代表該換行了
+                counter2 += 1 # 每寫一格，counter2 + 1
+                if counter2 == 9: # 當寫到第9格的時候代表該換行了
                     bid_detail.write("\n"), # 換行
                     print ""
-                    counter = 0 # 歸零重來
+                    counter2 = 0 # 歸零重來
+
+            # 休眠
             time.sleep(3)
 
 # 提示結束, 關閉寫檔
 print "清單產生完畢"
 bid_detail.close()
+f.close()
