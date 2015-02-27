@@ -1,0 +1,108 @@
+FundTicker,SecurityNum,HoldingsTicker,Shares,Weight,Name,Sector,Date
+QQQ,023135106,AMZN ,"3,656,721",3.533,Amazon.com Inc,Consumer Discretionary,02/25/2015
+QQQ,20030N101,CMCSA ,"16,983,020",2.538,Comcast Corp,Consumer Discretionary,02/25/2015
+QQQ,855244109,SBUX ,"5,909,862",1.396,Starbucks Corp,Consumer Discretionary,02/25/2015
+QQQ,741503403,PCLN ,"413,490",1.297,Priceline Group Inc/The,Consumer Discretionary,02/25/2015
+QQQ,90130A101,FOXA ,"10,721,942",0.938,Twenty-First Century Fox Inc,Consumer Discretionary,02/25/2015
+QQQ,25490A309,DTV ,"3,966,551",0.875,DIRECTV,Consumer Discretionary,02/25/2015
+QQQ,G5480U120,LBTYK ,"5,084,850",0.667,Liberty Global PLC,Consumer Discretionary,02/25/2015
+QQQ,64110L106,NFLX ,"475,771",0.57,Netflix Inc,Consumer Discretionary,02/25/2015
+QQQ,90130A200,FOX ,"6,306,507",0.537,Twenty-First Century Fox Inc,Consumer Discretionary,02/25/2015
+QQQ,88160R101,TSLA ,"990,213",0.506,Tesla Motors Inc,Consumer Discretionary,02/25/2015
+QQQ,92553P201,VIAB ,"2,839,955",0.501,Viacom Inc,Consumer Discretionary,02/25/2015
+QQQ,20030N200,CMCSK ,"3,289,286",0.488,Comcast Corp,Consumer Discretionary,02/25/2015
+QQQ,571903202,MAR ,"2,237,878",0.462,Marriott International Inc/MD,Consumer Discretionary,02/25/2015
+QQQ,82968B103,SIRI ,"43,393,520",0.422,Sirius XM Holdings Inc,Consumer Discretionary,02/25/2015
+QQQ,67103H107,ORLY ,"801,209",0.419,O'Reilly Automotive Inc,Consumer Discretionary,02/25/2015
+QQQ,778296103,ROST ,"1,657,216",0.409,Ross Stores Inc,Consumer Discretionary,02/25/2015
+QQQ,16117M305,CHTR ,"862,972",0.394,Charter Communications Inc,Consumer Discretionary,02/25/2015
+QQQ,25470M109,DISH ,"1,757,072",0.34,DISH Network Corp,Consumer Discretionary,02/25/2015
+QQQ,256746108,DLTR ,"1,624,188",0.322,Dollar Tree Inc,Consumer Discretionary,02/25/2015
+QQQ,983134107,WYNN ,"800,394",0.287,Wynn Resorts Ltd,Consumer Discretionary,02/25/2015
+QQQ,075896100,BBBY ,"1,462,941",0.275,Bed Bath & Beyond Inc,Consumer Discretionary,02/25/2015
+QQQ,G5480U104,LBTYA ,"1,983,148",0.271,Liberty Global PLC,Consumer Discretionary,02/25/2015
+QQQ,53071M104,QVCA ,"3,531,116",0.258,Liberty Interactive Corp,Consumer Discretionary,02/25/2015
+QQQ,892356106,TSCO ,"1,073,639",0.242,Tractor Supply Co,Consumer Discretionary,02/25/2015
+QQQ,896945201,TRIP ,"1,027,662",0.23,TripAdvisor Inc,Consumer Discretionary,02/25/2015
+QQQ,855030102,SPLS ,"5,052,981",0.211,Staples Inc,Consumer Discretionary,02/25/2015
+QQQ,H2906T109,GRMN ,"1,510,278",0.187,Garmin Ltd,Consumer Discretionary,02/25/2015
+QQQ,25470F302,DISCK ,"2,269,060",0.178,Discovery Communications Inc,Consumer Discretionary,02/25/2015
+QQQ,531229300,LMCK ,"1,806,208",0.176,Liberty Media Corp,Consumer Discretionary,02/25/2015
+QQQ,577081102,MAT ,"2,675,980",0.174,Mattel Inc,Consumer Discretionary,02/25/2015
+QQQ,53071M880,LVNTA ,"1,061,173",0.107,Liberty Ventures,Consumer Discretionary,02/25/2015
+QQQ,25470F104,DISCA ,"1,172,744",0.097,Discovery Communications Inc,Consumer Discretionary,02/25/2015
+QQQ,531229102,LMCA ,"825,107",0.08,Liberty Media Corp,Consumer Discretionary,02/25/2015
+QQQ,22160K105,COST ,"3,457,350",1.278,Costco Wholesale Corp,Consumer Staples,02/25/2015
+QQQ,609207105,MDLZ ,"13,267,539",1.219,Mondelez International Inc,Consumer Staples,02/25/2015
+QQQ,50076Q106,KRFT ,"4,650,342",0.746,Kraft Foods Group Inc,Consumer Staples,02/25/2015
+QQQ,611740101,MNST ,"1,323,922",0.411,Monster Beverage Corp,Consumer Staples,02/25/2015
+QQQ,966837106,WFM ,"2,841,173",0.405,Whole Foods Market Inc,Consumer Staples,02/25/2015
+QQQ,49271M100,GMCR ,"1,279,473",0.398,Keurig Green Mountain Inc,Consumer Staples,02/25/2015
+QQQ,375558103,GILD ,"11,915,011",3.119,Gilead Sciences Inc,Health Care,02/25/2015
+QQQ,031162100,AMGN ,"6,007,538",2.381,Amgen Inc,Health Care,02/25/2015
+QQQ,151020104,CELG ,"6,307,943",1.947,Celgene Corp,Health Care,02/25/2015
+QQQ,09062X103,BIIB ,"1,865,104",1.912,Biogen Idec Inc,Health Care,02/25/2015
+QQQ,30219G108,ESRX ,"5,796,240",1.236,Express Scripts Holding Co,Health Care,02/25/2015
+QQQ,75886F107,REGN ,"787,356",0.835,Regeneron Pharmaceuticals Inc,Health Care,02/25/2015
+QQQ,015351109,ALXN ,"1,565,994",0.726,Alexion Pharmaceuticals Inc,Health Care,02/25/2015
+QQQ,92532F100,VRTX ,"1,899,537",0.566,Vertex Pharmaceuticals Inc,Health Care,02/25/2015
+QQQ,452327109,ILMN ,"1,121,475",0.552,Illumina Inc,Health Care,02/25/2015
+QQQ,156782104,CERN ,"2,696,886",0.491,Cerner Corp,Health Care,02/25/2015
+QQQ,628530107,MYL ,"2,955,933",0.419,Mylan Inc/PA,Health Care,02/25/2015
+QQQ,46120E602,ISRG ,"286,318",0.364,Intuitive Surgical Inc,Health Care,02/25/2015
+QQQ,806407102,HSIC ,"665,092",0.235,Henry Schein Inc,Health Care,02/25/2015
+QQQ,148887102,CTRX ,"1,638,646",0.217,Catamaran Corp,Health Care,02/25/2015
+QQQ,02376R102,AAL ,"5,664,758",0.706,American Airlines Group Inc,Industrials,02/25/2015
+QQQ,693718108,PCAR ,"2,796,610",0.453,PACCAR Inc,Industrials,02/25/2015
+QQQ,311900104,FAST ,"2,341,180",0.249,Fastenal Co,Industrials,02/25/2015
+QQQ,92345Y106,VRSK ,"1,302,524",0.236,Verisk Analytics Inc,Industrials,02/25/2015
+QQQ,858912108,SRCL ,"670,715",0.228,Stericycle Inc,Industrials,02/25/2015
+QQQ,12541W209,CHRW ,"1,155,346",0.213,CH Robinson Worldwide Inc,Industrials,02/25/2015
+QQQ,302130109,EXPD ,"1,524,525",0.184,Expeditors International of Washington Inc,Industrials,02/25/2015
+QQQ,037833100,AAPL ,"46,318,858",14.954,Apple Inc,Information Technology,02/25/2015
+QQQ,594918104,MSFT ,"65,099,685",7.179,Microsoft Corp,Information Technology,02/25/2015
+QQQ,38259P706,GOOG ,"2,679,986",3.654,Google Inc,Information Technology,02/25/2015
+QQQ,30303M102,FB ,"17,564,049",3.503,Facebook Inc,Information Technology,02/25/2015
+QQQ,458140100,INTC ,"38,185,498",3.249,Intel Corp,Information Technology,02/25/2015
+QQQ,38259P508,GOOGL ,"2,249,406",3.086,Google Inc,Information Technology,02/25/2015
+QQQ,17275R102,CSCO ,"40,385,695",2.986,Cisco Systems Inc,Information Technology,02/25/2015
+QQQ,747525103,QCOM ,"13,130,775",2.36,QUALCOMM Inc,Information Technology,02/25/2015
+QQQ,278642103,EBAY ,"9,811,873",1.435,eBay Inc,Information Technology,02/25/2015
+QQQ,882508104,TXN ,"8,342,380",1.236,Texas Instruments Inc,Information Technology,02/25/2015
+QQQ,056752108,BIDU ,"2,188,189",1.116,Baidu Inc ADR,Information Technology,02/25/2015
+QQQ,053015103,ADP ,"3,807,145",0.85,Automatic Data Processing Inc,Information Technology,02/25/2015
+QQQ,984332106,YHOO ,"7,481,908",0.833,Yahoo! Inc,Information Technology,02/25/2015
+QQQ,00724F101,ADBE ,"3,938,906",0.771,Adobe Systems Inc,Information Technology,02/25/2015
+QQQ,192446102,CTSH ,"4,809,072",0.755,Cognizant Technology Solutions Corp,Information Technology,02/25/2015
+QQQ,595112103,MU ,"8,477,840",0.648,Micron Technology Inc,Information Technology,02/25/2015
+QQQ,038222105,AMAT ,"9,622,520",0.605,Applied Materials Inc,Information Technology,02/25/2015
+QQQ,Y0486S104,AVGO ,"1,997,347",0.564,Avago Technologies Ltd,Information Technology,02/25/2015
+QQQ,461202103,INTU ,"2,255,019",0.552,Intuit Inc,Information Technology,02/25/2015
+QQQ,958102105,WDC ,"1,834,115",0.488,Western Digital Corp,Information Technology,02/25/2015
+QQQ,111320107,BRCM ,"4,280,547",0.483,Broadcom Corp,Information Technology,02/25/2015
+QQQ,G7945M107,STX ,"2,584,417",0.389,Seagate Technology PLC,Information Technology,02/25/2015
+QQQ,N6596X109,NXPI ,"1,822,414",0.388,NXP Semiconductors NV,Information Technology,02/25/2015
+QQQ,337738108,FISV ,"1,926,763",0.381,Fiserv Inc,Information Technology,02/25/2015
+QQQ,032654105,ADI ,"2,481,536",0.367,Analog Devices Inc,Information Technology,02/25/2015
+QQQ,704326107,PAYX ,"2,865,479",0.358,Paychex Inc,Information Technology,02/25/2015
+QQQ,285512109,EA ,"2,455,698",0.353,Electronic Arts Inc,Information Technology,02/25/2015
+QQQ,871503108,SYMC ,"5,450,604",0.348,Symantec Corp,Information Technology,02/25/2015
+QQQ,80004C101,SNDK ,"1,742,606",0.345,SanDisk Corp,Information Technology,02/25/2015
+QQQ,00507V109,ATVI ,"5,678,717",0.334,Activision Blizzard Inc,Information Technology,02/25/2015
+QQQ,M22465104,CHKP ,"1,506,785",0.315,Check Point Software Technologies Ltd,Information Technology,02/25/2015
+QQQ,12673P105,CA ,"3,513,722",0.292,CA Inc,Information Technology,02/25/2015
+QQQ,052769106,ADSK ,"1,794,630",0.279,Autodesk Inc,Information Technology,02/25/2015
+QQQ,512807108,LRCX ,"1,255,412",0.263,Lam Research Corp,Information Technology,02/25/2015
+QQQ,29444U700,EQIX ,"433,848",0.248,Equinix Inc,Information Technology,02/25/2015
+QQQ,00971T101,AKAM ,"1,405,777",0.245,Akamai Technologies Inc,Information Technology,02/25/2015
+QQQ,64110D104,NTAP ,"2,461,688",0.238,NetApp Inc,Information Technology,02/25/2015
+QQQ,67066G104,NVDA ,"4,292,712",0.238,NVIDIA Corp,Information Technology,02/25/2015
+QQQ,535678106,LLTC ,"1,883,829",0.229,Linear Technology Corp,Information Technology,02/25/2015
+QQQ,021441100,ALTR ,"2,407,333",0.222,Altera Corp,Information Technology,02/25/2015
+QQQ,983919101,XLNX ,"2,088,586",0.22,Xilinx Inc,Information Technology,02/25/2015
+QQQ,482480100,KLAC ,"1,298,987",0.214,KLA-Tencor Corp,Information Technology,02/25/2015
+QQQ,177376100,CTXS ,"1,271,277",0.204,Citrix Systems Inc,Information Technology,02/25/2015
+QQQ,826552101,SIAL ,"940,549",0.326,Sigma-Aldrich Corp,Materials,02/25/2015
+QQQ,78388J106,SBAC ,"1,019,554",0.306,SBA Communications Corp,Telecommunication Services,02/25/2015
+QQQ,92857W308,VOD ,"3,404,545",0.295,Vodafone Group PLC ADR,Telecommunication Services,02/25/2015
+QQQ,92719A106,VIP ,"13,874,126",0.178,VimpelCom Ltd ADR,Telecommunication Services,02/25/2015
