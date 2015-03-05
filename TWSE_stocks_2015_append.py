@@ -24,7 +24,7 @@ for stock in group:   # 每個代碼新建一個txt
     bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'a') # 改為'a'附加模式，2015的資料寫在最後
     print "現在處理的是" + stock
     for year in range(2015,2016): # 2015年
-        for a in range(1,3): # 現在是2月
+        for a in range(1,4): # 現在是3月
             if a < 10: # 如果是1~9月前面加0，01~09
                 month = "0" + str(a)
             else:
