@@ -1,45 +1,45 @@
-# ¥»µ{¦¡¥Øªº¬°¤ÀªR0050¦b¦¬½L»ù¬ð¯}¸ò¶^¯}60¤é§¡½uµ¦²¤¤Uªº³ø¹S²v
+# æœ¬ç¨‹å¼ç›®çš„ç‚ºåˆ†æž0050åœ¨æ”¶ç›¤åƒ¹çªç ´è·Ÿè·Œç ´60æ—¥å‡ç·šç­–ç•¥ä¸‹çš„å ±é…¬çŽ‡
 
-# ¸ü¤JRODBC
+# è¼‰å…¥RODBC
 library(RODBC)
-# ODBC ¦WºÙ/ user / password
+# ODBC åç¨±/ user / password
 conn <- odbcConnect("mysql", uid="root", pwd="")
-# Åª¨útable
+# è®€å–table
 sqlTables(conn)
-# Åª¨útable 0050
+# è®€å–table 0050
 priceTab<-sqlFetch(conn,"0050")
 
-# Ãö³¬³s½u
+# é—œé–‰é€£ç·š
 close(conn)
 
-# ¸ü¤Jxts
+# è¼‰å…¥xts
 library(xts)
 # rownames = date
 rownames(priceTab) = priceTab[,1]
-# ¥h±¼NULL
+# åŽ»æŽ‰NULL
 priceTab$Date = NULL
-# Âà´«¬°xts
+# è½‰æ›ç‚ºxts
 priceXts = as.xts(priceTab)
 
-# ¸ü¤Jquantmod
+# è¼‰å…¥quantmod
 library(quantmod)
 
-# ©w¸q§¡½u
-# ¦¬½L»ù©ñ¦b²Ä6¦æ
-# 60¤é§¡½u¤¤½u¥æ©öªÌ±`¥Î
+# å®šç¾©å‡ç·š
+# æ”¶ç›¤åƒ¹æ”¾åœ¨ç¬¬6è¡Œ
+# 60æ—¥å‡ç·šä¸­ç·šäº¤æ˜“è€…å¸¸ç”¨
 a = runMean(as.numeric(priceXts[,6]),n = 60)
 names(a)= rownames(priceTab)
 ma_60 = as.xts(a)
 
-# µ¦²¤¦^´ú¡G·í¦¬½L»ù > 60ma¡A¥þÀ£¡F·í¦¬½L»ù < 60ma¡AªÅ¤â
-# position¬°¤@­Ó®É¶¡§Ç¦C¡A¥H¤é¬°³æ¦ì¡A¦pªG¦¬½L»ù¤j©ó60ma¡A³]­È¬°1¡F§_«h³]­È¬°0¡C
-# ¥Ñ©ó§Ú­Ì¬O¤é¸ê®Æ¡A°T¸¹µo¥Í®É¥u¯à¹j¤Ñ°µ¥æ©ö¡A¬G±N³o¦V¶q¥þ³¡©¹«á»¼©µ¤@¤Ñ¡C
+# ç­–ç•¥å›žæ¸¬ï¼šç•¶æ”¶ç›¤åƒ¹ > 60maï¼Œå…¨å£“ï¼›ç•¶æ”¶ç›¤åƒ¹ < 60maï¼Œç©ºæ‰‹
+# positionç‚ºä¸€å€‹æ™‚é–“åºåˆ—ï¼Œä»¥æ—¥ç‚ºå–®ä½ï¼Œå¦‚æžœæ”¶ç›¤åƒ¹å¤§æ–¼60maï¼Œè¨­å€¼ç‚º1ï¼›å¦å‰‡è¨­å€¼ç‚º0ã€‚
+# ç”±æ–¼æˆ‘å€‘æ˜¯æ—¥è³‡æ–™ï¼Œè¨Šè™Ÿç™¼ç”Ÿæ™‚åªèƒ½éš”å¤©åšäº¤æ˜“ï¼Œæ•…å°‡é€™å‘é‡å…¨éƒ¨å¾€å¾Œéžå»¶ä¸€å¤©ã€‚
 position<-Lag(ifelse(priceXts[,6]>ma_60, 1,0))
-# ROC­pºâ¡Glog(¤µ¤Ñ¦¬½L»ù/¬Q¤Ñ¦¬½L»ù)¡A­¼¤Wpoistion¥Nªí¡C­Y1«h«ù¦³¡A­Y0«hªÅ¤â¡C
+# ROCè¨ˆç®—ï¼šlog(ä»Šå¤©æ”¶ç›¤åƒ¹/æ˜¨å¤©æ”¶ç›¤åƒ¹)ï¼Œä¹˜ä¸Špoistionä»£è¡¨ã€‚è‹¥1å‰‡æŒæœ‰ï¼Œè‹¥0å‰‡ç©ºæ‰‹ã€‚
 temp<-ROC(Cl(priceTab))*position
-# ¦^´ú¦h¤Ö®É¶¡¡A¥i¦A§ï
+# å›žæ¸¬å¤šå°‘æ™‚é–“ï¼Œå¯å†æ”¹
 ma60Re<-temp['2004-01-01/2015-02-26']
-# cumsum­pºâ²Ö­p­È¡A§Y±N¨C¤@¤À¶q¤§«eªº­È²Ö¥[°_¨Ó¡C¨úexp¨ç¼Æ¬O­n­pºâ²Ö­p³ø¹S²v¡C
+# cumsumè¨ˆç®—ç´¯è¨ˆå€¼ï¼Œå³å°‡æ¯ä¸€åˆ†é‡ä¹‹å‰çš„å€¼ç´¯åŠ èµ·ä¾†ã€‚å–expå‡½æ•¸æ˜¯è¦è¨ˆç®—ç´¯è¨ˆå ±é…¬çŽ‡ã€‚
 ma60Re<-exp(cumsum(temp[!is.na(temp)]))
-# ²Ö­p³ø¹S²vµe¥X¹Ïªí
+# ç´¯è¨ˆå ±é…¬çŽ‡ç•«å‡ºåœ–è¡¨
 plot(ma60Re)
