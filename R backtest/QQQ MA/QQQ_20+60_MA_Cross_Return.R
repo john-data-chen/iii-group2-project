@@ -1,4 +1,4 @@
-# 本程式目的為分析0050在20日與60日均線黃金與死亡交叉策略下的報酬率
+# 本程式目的為分析QQQ在20日與60日均線黃金與死亡交叉策略下的報酬率
 
 # 載入RODBC
 library(RODBC)
@@ -6,8 +6,8 @@ library(RODBC)
 conn <- odbcConnect("mysql", uid="root", pwd="")
 # 讀取table
 sqlTables(conn)
-# 讀取table 0050
-priceTab<-sqlFetch(conn,"0050") 
+# 讀取table qqq
+priceTab<-sqlFetch(conn,"qqq") 
 
 # 關閉連線
 close(conn)
@@ -25,13 +25,13 @@ priceXts = as.xts(priceTab)
 library(quantmod)
 
 # 定義均線
-# 收盤價放在第6行
+# 調整收盤價放在第5行
 # 20日均線短線交易者常用
-a = runMean(as.numeric(priceXts[,6]),n = 20)
+a = runMean(as.numeric(priceXts[,5]),n = 20)
 names(a)= rownames(priceTab)
 ma_20 = as.xts(a)
 # 60日均線中線交易者常用
-a = runMean(as.numeric(priceXts[,6]),n = 60)
+a = runMean(as.numeric(priceXts[,5]),n = 60)
 names(a)= rownames(priceTab)
 ma_60 = as.xts(a)
 
