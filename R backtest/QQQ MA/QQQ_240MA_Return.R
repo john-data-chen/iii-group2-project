@@ -25,16 +25,16 @@ priceXts = as.xts(priceTab)
 library(quantmod)
 
 # 定義均線
-# 調整後收盤價放在第5行
-# # 240日均線是長線，一般很少用，僅作為比較參考
-a = runMean(as.numeric(priceXts[,5]),n = 240)
+# 收盤價放在第4行
+# 240日均線是長線，一般很少用，僅作為比較參考
+a = runMean(as.numeric(priceXts[,4]),n = 240)
 names(a)= rownames(priceTab)
 ma_240 = as.xts(a)
 
 # 策略回測：當收盤價 > 240ma，全壓；當收盤價 < 240ma，空手
 # position為一個時間序列，以日為單位，如果收盤價大於240ma，設值為1；否則設值為0。
 # 由於我們是日資料，訊號發生時只能隔天做交易，故將這向量全部往後遞延一天。
-position<-Lag(ifelse(priceXts[,5]>ma_240, 1,0))
+position<-Lag(ifelse(priceXts[,4]>ma_240, 1,0))
 # ROC計算：log(今天收盤價/昨天收盤價)，乘上poistion代表。若1則持有，若0則空手。
 temp<-ROC(Cl(priceTab))*position
 # 回測多少時間，可再改

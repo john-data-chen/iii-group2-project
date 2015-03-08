@@ -25,13 +25,13 @@ priceXts = as.xts(priceTab)
 library(quantmod)
 
 # 定義均線
-# 調整收盤價放在第5行
+# 收盤價放在第4行
 # 20日均線短線交易者常用
-a = runMean(as.numeric(priceXts[,5]),n = 20)
+a = runMean(as.numeric(priceXts[,4]),n = 20)
 names(a)= rownames(priceTab)
 ma_20 = as.xts(a)
 # 60日均線中線交易者常用
-a = runMean(as.numeric(priceXts[,5]),n = 60)
+a = runMean(as.numeric(priceXts[,4]),n = 60)
 names(a)= rownames(priceTab)
 ma_60 = as.xts(a)
 
