@@ -6,7 +6,7 @@ library(RODBC)
 conn <- odbcConnect("mysql", uid="root", pwd="")
 # 讀取table
 sqlTables(conn)
-# 讀取table 0050
+# 讀取table qqq
 priceTab <- sqlFetch(conn,"qqq")
 # 關閉連線
 close(conn)

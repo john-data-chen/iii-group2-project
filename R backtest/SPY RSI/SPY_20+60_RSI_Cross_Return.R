@@ -1,4 +1,4 @@
-# 本程式目的為分析QQQ在RSI(20,60)交叉策略下的報酬率
+# 本程式目的為分析SPY在RSI(20,60)交叉策略下的報酬率
 
 # 載入RODBC
 library(RODBC)
@@ -6,8 +6,8 @@ library(RODBC)
 conn <- odbcConnect("mysql", uid="root", pwd="")
 # 讀取table
 sqlTables(conn)
-# 讀取table qqq
-priceTab <- sqlFetch(conn,"qqq")
+# 讀取table spy
+priceTab <- sqlFetch(conn,"spy")
 # 關閉連線
 close(conn)
 

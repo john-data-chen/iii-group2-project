@@ -1,4 +1,4 @@
-# 本程式目的為分析QQQ在RSI(20,60)交叉策略下的報酬率
+# 本程式目的為分析SPY在收盤價突破跟跌破60日均線策略下的報酬率
 
 # 載入RODBC
 library(RODBC)
@@ -6,8 +6,9 @@ library(RODBC)
 conn <- odbcConnect("mysql", uid="root", pwd="")
 # 讀取table
 sqlTables(conn)
-# 讀取table qqq
-priceTab <- sqlFetch(conn,"qqq")
+# 讀取table spy
+priceTab<-sqlFetch(conn,"spy")
+
 # 關閉連線
 close(conn)
 
@@ -20,27 +21,25 @@ priceTab$Date = NULL
 # 轉換為xts
 priceXts = as.xts(priceTab)
 
-# 載入quantmod，會一起載入TTR
+# 載入quantmod
 library(quantmod)
 
-# 計算RSI20
-a = RSI(as.numeric(priceXts[,4]), n = 20)
+# 定義均線
+# 收盤價放在第4行
+# 60日均線中線交易者常用
+a = runMean(as.numeric(priceXts[,4]),n = 60)
 names(a)= rownames(priceTab)
-rsi20 = as.xts(a)
-# 計算RSI60
-a = RSI(as.numeric(priceXts[,4]), n = 60)
-names(a)= rownames(priceTab)
-rsi60 = as.xts(a)
+ma_60 = as.xts(a)
 
-# 策略回測：當rsi20 > rsi60，全壓；當rsi20 < rsi60，空手
-# position為一個時間序列，以日為單位，如果rsi20大於rsi60，設值為1；否則設值為0。
+# 策略回測：當收盤價 > 60ma，全壓；當收盤價 < 60ma，空手
+# position為一個時間序列，以日為單位，如果收盤價大於60ma，設值為1；否則設值為0。
 # 由於我們是日資料，訊號發生時只能隔天做交易，故將這向量全部往後遞延一天。
-position <- Lag(ifelse(rsi20 > rsi60, 1,0))
+position<-Lag(ifelse(priceXts[,4]>ma_60, 1,0))
 # ROC計算：log(今天收盤價/昨天收盤價)，乘上poistion代表。若1則持有，若0則空手。
-temp <- ROC(Cl(priceTab))*position
+temp<-ROC(Cl(priceTab))*position
 # 回測多少時間，可再改
-rsi20And60 <- temp['2004-01-01/2015-02-26']
+ma60Re<-temp['2004-01-01/2015-02-26']
 # cumsum計算累計值，即將每一分量之前的值累加起來。取exp函數是要計算累計報酬率。
-rsi20And60 <- exp(cumsum(temp[!is.na(temp)]))
+ma60Re<-exp(cumsum(temp[!is.na(temp)]))
 # 累計報酬率畫出圖表
-plot(rsi20And60)
+plot(ma60Re)
