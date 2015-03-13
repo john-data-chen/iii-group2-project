@@ -15,7 +15,7 @@ res = requests.get("http://www.twse.com.tw/ch/trading/indices/twco/tai50i.php", 
 soup = BeautifulSoup(res.text.encode("ISO-8859-1"))
 
 # 將所有資料先存成0050_list_total.csv
-total = open("TWSE_Stocks/0050_data_list.csv",'w')
+total = open("TWSE_Stocks/list/0050_data_list.csv",'w')
 # 寫入表頭
 print "代號" + " " + "名稱" + " " + "ICB行業分類指標" + " " + "發行股數(單位:股)" + " " + "公眾流通量係數" + " " + "占臺灣50指權重"
 total.write("代號" + " " + "名稱" + " " + "ICB行業分類指標" + " " + "發行股數(單位:股)" + " " + "公眾流通量係數" + " " + "占臺灣50指權重" + "\n")
@@ -38,8 +38,8 @@ print ""
 total.close()
 
 # 讀取之前寫入的清單，處理後只留下股號，存入新檔
-new = open("TWSE_Stocks/0050_ticker_list.csv",'w')
-open = open("TWSE_Stocks/0050_data_list.csv",'r')
+new = open("TWSE_Stocks/list/0050_ticker_list.csv",'w')
+open = open("TWSE_Stocks/list/0050_data_list.csv",'r')
 print "處理成分股清單後只留下股號，存入新檔"
 
 # 這個迴圈，會將每列的格子存入一個個元素裡

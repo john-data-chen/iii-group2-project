@@ -30,7 +30,7 @@ url_part2 = '&d=2&e=09&f=2015&g=d&a=0&b=01&c=2004&ignore=.csv'
 # 新增全域變數給檔案處理
 global f
 # 讀取成分股列表，路徑與檔名參考下行
-f = open('US_stocks_price/ticker_list.csv', 'r')
+f = open('US_stocks_price/list/ticker_list.csv', 'r')
 # 讀取有幾列，代表有幾支成分股
 file_content = f.readlines()
 # counter從1開始

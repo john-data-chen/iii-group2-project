@@ -14,7 +14,7 @@ if not os.path.exists("TWSE_Stocks"):
 # 新增全域變數給檔案處理
 global f
 # 讀取成分股列表
-f = open('TWSE_Stocks/0050_ticker_list.csv', 'r')
+f = open('TWSE_Stocks/list/0050_ticker_list.csv', 'r')
 # 讀取有幾列，代表有幾支成分股
 file_content = f.readlines()
 # counter從1開始
