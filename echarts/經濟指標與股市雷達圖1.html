@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>經濟指標與股市雷達圖</title>
+</head>
+
+<body>
+    <!-- ECharts的DOM -->
+    <div id="main" style="height:400px"></div>
+    <!-- import ECharts script -->
+    <script src="js/echarts.js"></script>
+    <script type="text/javascript">
+    // 路徑配置
+    require.config({
+        paths: {
+            echarts: 'js/'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/radar' // 使用雷達圖就加載radar.js
+        ],
+
+        function(ec) {
+            var myChart = ec.init(document.getElementById('main'));
+
+            var option = {
+                title: {
+                    text: '0050 vs QQQ',
+                    subtext: '哪個指標跟股市最相關？'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    x: 'center',
+                    data: ['0050', 'QQQ']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: true,
+                polar: [{
+                    indicator: [{
+                        text: '實質GDP季度年增率',
+                        max: 100
+                    }, {
+                        text: '國民就業數據',
+                        max: 100
+                    }, {
+                        text: '核心物價',
+                        max: 100
+                    }, {
+                        text: '匯率',
+                        max: 100
+                    }, {
+                        text: '房價',
+                        max: 100
+                    }],
+                    radius: 140
+                }],
+                series: [{
+                    name: '指標與股市相關度分析',
+                    type: 'radar',
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [{
+                        value: [11.5, 58.6, 24.6, 54.6, 68.2],
+                        name: '0050'
+                    }, {
+                        value: [62, 68, 27.5, 65.2, 66.6],
+                        name: 'QQQ'
+                    }]
+                }]
+            };
+
+            myChart.setOption(option);
+        }
+    );
+    </script>
+</body>
+
+</html>
