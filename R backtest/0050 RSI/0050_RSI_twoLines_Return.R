@@ -28,7 +28,7 @@ library(quantmod)
 
 # 輸入第1條線的天數，天數必須是較短的，這個值會是字元，必須as.numeric才能用
 shortDay = readline()
-# 計算短天數RSI，收盤價放在第4行
+# 計算短天數RSI，收盤價放在第6行
 a = RSI(as.numeric(priceXts[,6]), n = as.numeric(shortDay))
 names(a)= rownames(backtestTime)
 rsiShort= as.xts(a)

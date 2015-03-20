@@ -1,63 +1,63 @@
-# ?��程�?�目??�為??��?�QQQ?��RSI 2條�?�交??��?�略下�?�報?��???
+# 本程式目的為分析QQQ在RSI 2條線交叉策略下的報酬率
 
 # 載入RODBC
 library(RODBC)
-# ODBC ??�稱/ user / password
+# ODBC 名稱/ user / password
 conn <- odbcConnect("mysql", uid="root", pwd="")
-# 讀??�table
+# 讀取table
 sqlTables(conn)
-# 讀??�table qqq
+# 讀取table qqq
 priceTab <- sqlFetch(conn,"qqq")
-# ??��?��?�?
+# 關閉連線
 close(conn)
 
 # 載入xts
 library(xts)
 # rownames = date
 rownames(priceTab) = priceTab[,1]
-# 輸入??�測??�起點�?��?��?�格式�??2009-01-01
+# 輸入回測的起點時間，格式：2009-01-01
 fromDate = readline()
 backtestTime <- priceTab[rownames(priceTab) > fromDate,]
-# ?��??�NULL
+# 去掉NULL
 backtestTime$Date = NULL
-# 轉�?�為xts
+# 轉換為xts
 priceXts = as.xts(backtestTime)
 
-# 載入quantmod，�?��?�起�?�入TTR
+# 載入quantmod，會一起載入TTR
 library(quantmod)
 
-# 輸入�?1條�?��?�天?��，天?��必�?�是較短??��?�這個值�?�是字�?��?��?��?�as.numeric??�能?��
+# 輸入第1條線的天數，天數必須是較短的，這個值會是字元，必須as.numeric才能用
 shortDay = readline()
-# 計�?�短天數RSI，收?��?��?��?���?4�?
+# 計算短天數RSI，收盤價放在第4行
 a = RSI(as.numeric(priceXts[,4]), n = as.numeric(shortDay))
 names(a)= rownames(backtestTime)
 rsiShort= as.xts(a)
 
-# 輸入�?2條�?��?�天?��，天?��必�?�是較長???
+# 輸入第2條線的天數，天數必須是較長的
 longDay = readline()
-# 計�?�長天數RSI
+# 計算長天數RSI
 a = RSI(as.numeric(priceXts[,4]), n = as.numeric(longDay))
 names(a)= rownames(backtestTime)
 rsiLong = as.xts(a)
 
-# 策略??�測：當?��天數rsi > ?��天數rsi，全壓�?�當?��天數rsi < ?��天數rsi，空???
-# position?��一?���?��?��?��?��?�以?��?��?��位�?��?��?�短天數rsi大於?��天數rsi，設?��為1；否??�設?��為0?�?
-# ?��?��??�們是?��資�?��?��?��?�發??��?�只?��??�天??�交??��?��?��?�這�?��?�全?��往後�?�延一天�?
+# 策略回測：當短天數rsi > 長天數rsi，全壓；當短天數rsi < 長天數rsi，空手
+# position為一個時間序列，以日為單位，如果短天數rsi大於長天數rsi，設值為1；否則設值為0。
+# 由於我們是日資料，訊號發生時只能隔天做交易，故將這向量全部往後遞延一天。
 position <- Lag(ifelse(rsiShort > rsiLong, 1,0))
-# ROC計�?��?�log(今天?��?��?��/?��天收?��?��)，�?��?�poistion�?表。若1??��?��?��?�若0??�空??��?
+# ROC計算：log(今天收盤價/昨天收盤價)，乘上poistion代表。若1則持有，若0則空手。
 rsiReturn <- ROC(Cl(backtestTime))*position
-# cumsum計�?�累計值�?�即將�?��?�??��?��?��?��?�值累??�起來。�?�exp?��?��?��要�?��?�累計報?��??��?
+# cumsum計算累計值，即將每一分量之前的值累加起來。取exp函數是要計算累計報酬率。
 rsiReturn<- exp(cumsum(rsiReturn[!is.na(rsiReturn)]))
 
-# 顯示??�測起�?�日???
+# 顯示回測起點日期
 fromDate
-# 顯示?��天數跟長天數RSI??��?�數
+# 顯示短天數跟長天數RSI的參數
 shortDay
 longDay
-# 顯示從起點�?��?��?�總?��??�幾?��交??�日
+# 顯示從起點開始，總共有幾個交易日
 length(rownames(backtestTime))
-# 計�?�總?��交�?�幾次�?�交??�次?��越�?��?��?��?�出??��?�費跟�?�就越�??
+# 計算總共交易幾次，交易次數越多，要付出手續費跟稅就越高
 tradeTotal = sum(position -  Lag(position,1) !=0, na.rm=TRUE)
 tradeTotal
-# 累�?�報?��??�畫?��??�表
+# 累計報酬率畫出圖表
 plot(rsiReturn)
