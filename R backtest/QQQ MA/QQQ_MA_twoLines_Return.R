@@ -49,6 +49,12 @@ maReturn <- ROC(Cl(backtestTime))*position
 # cumsum計算累計值，即將每一分量之前的值累加起來。取exp函數是要計算累計報酬率。
 maReturn<- exp(cumsum(maReturn[!is.na(maReturn)]))
 
+# 轉換xts成data.frame
+df_return = as.data.frame(maReturn)
+df_return = data.frame(date = rownames(df_return), return = df_return$Lag.1, row.names=NULL)
+# 另存成csv
+write.table(df_return, file = "qqq_ma_twoLine.csv", sep = ",", col.names = NA)
+
 # 顯示回測起點日期
 fromDate
 # 顯示短天數跟長天數RSI的參數
