@@ -53,11 +53,11 @@ maReturn<- exp(cumsum(maReturn[!is.na(maReturn)]))
 df_return = as.data.frame(maReturn)
 df_return = data.frame(date = rownames(df_return), return = df_return$Lag.1, row.names=NULL)
 # 另存成csv
-write.table(df_return, file = "qqq_ma_twoLine.csv", sep = ",", col.names = NA)
+write.table(df_return, file = "qqq_ma_twoLines.csv", sep = ",", col.names = NA)
 
 # 顯示回測起點日期
 fromDate
-# 顯示短天數跟長天數RSI的參數
+# 顯示短天數跟長天數的參數
 shortDay
 longDay
 # 顯示從起點開始，總共有幾個交易日
