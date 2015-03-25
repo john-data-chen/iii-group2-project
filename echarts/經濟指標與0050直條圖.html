@@ -95,7 +95,7 @@
                     splitLine: {
                         show: false
                     },
-                    data: ['房價', '匯率', '重貼現率', '核心物價', '勞動參與率', '實質GDP季度年增率']
+                    data: ['房價', 'QQQ前一天收盤價', '匯率', '重貼現率', '核心物價', '勞動參與率', '實質GDP季度年增率']
                 }],
                 series: [{
                     name: '相關係數',
@@ -114,6 +114,9 @@
                     },
                     data: [{
                         value: 0.682,
+                        itemStyle: labelRight
+                    }, {
+                        value: 0.788,
                         itemStyle: labelRight
                     }, {
                         value: -0.546,

@@ -29,56 +29,97 @@
             var myChart = ec.init(document.getElementById('main'));
 
             var option = {
-    title : {
-        text: 'QQQ均線報酬率比較圖',
-        subtext: '兩條線會比一條線強嗎？'
-    },
-    tooltip : {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['20-60','60']
-    },
-    toolbox: {
-        show : true,
-        feature : {
-            mark : {show: true},
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    calculable : true,
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-            data : ['2009','2010','2011','2012','2013','2014','2015']
-        }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'20-60',
-            type:'line',
-            smooth:true,
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data:[1, 1.37, 1.37, 1.39, 1.38, 1.71, 1.75]
-        },
-        {
-            name:'60',
-            type:'line',
-            smooth:true,
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data:[1.01, 1.42, 1.63, 1.73, 1.66, 1.94, 1.97]
-        }
-    ]
-};
+                title: {
+                    text: '技術指標報酬率比較圖',
+                    subtext: '用數據打破迷思！'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['QQQ: MA20', 'QQQ: MA60', 'QQQ: MA20-60', 'QQQ: RSI20-60']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        magicType: {
+                            show: true,
+                            type: ['line', 'bar', 'stack', 'tiled']
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: true,
+                xAxis: [{
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                }],
+                yAxis: [{
+                    type: 'value'
+                }],
+                series: [{
+                    name: 'QQQ: MA20',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [104, 134, 146, 147, 166, 186, 186]
+                }, {
+                    name: 'QQQ: MA60',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [101, 142, 163, 173, 166, 194, 199]
+                }, {
+                    name: 'QQQ: MA20-60',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [100, 137, 137, 139, 138, 171, 176]
+                }, {
+                    name: 'QQQ: RSI20-60',
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: [101, 123, 136, 155, 145, 156, 170]
+                }, ]
+            };
 
             myChart.setOption(option);
         }
