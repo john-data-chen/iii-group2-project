@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com -->
+
 <head>
     <meta charset="UTF-8">
     <title>經濟指標與QQQ直條圖</title>
@@ -28,74 +29,111 @@
         function(ec) {
             var myChart = ec.init(document.getElementById('main'));
 
-            var labelLeft = {normal: {label : {position: 'left'}}};
-option = {
-    title: {
-        text: '經濟指標與QQQ相關係數',
-        subtext: '哪個指標跟股市最有關連？'
-    },
-    tooltip : {
-        trigger: 'axis',
-        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-        }
-    },
-    toolbox: {
-        show : true,
-        feature : {
-            mark : {show: true},
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    grid: {
-        y: 80,
-        y2: 30
-    },
-    xAxis : [
-        {
-            type : 'value',
-            position: 'top',
-            splitLine: {lineStyle:{type:'dashed'}},
-        }
-    ],
-    yAxis : [
-        {
-            type : 'category',
-            axisLine: {show: false},
-            axisLabel: {show: false},
-            axisTick: {show: false},
-            splitLine: {show: false},
-            data : ['房價', '與0050隔天收盤價', '美元指數', '核心物價', '非農就業人口數', '實質GDP季度年增率']
-        }
-    ],
-    series : [
-        {
-            name:'相關係數',
-            type:'bar',
-            stack: '总量',
-            itemStyle : { normal: {
-                color: 'blue',
-                borderRadius: 5,
-                label : {
-                    show: true,
-                    position: 'left',
-                    formatter: '{b}'
+            var labelLeft = {
+                normal: {
+                    label: {
+                        position: 'left'
+                    }
                 }
-            }},
-            data:[
-                {value:0.666, itemStyle:labelLeft},
-                {value:0.788, itemStyle:labelLeft},
-                {value:0.652, itemStyle:labelLeft},
-                {value:-0.275, itemStyle:labelLeft},
-                {value:0.68, itemStyle:labelLeft},
-                {value:0.62, itemStyle:labelLeft},
-            ]
-        }
-    ]
-};
+            };
+            option = {
+                title: {
+                    text: '經濟指標與QQQ相關係數',
+                    subtext: '哪個指標跟股市最有關連？'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        magicType: {
+                            show: true,
+                            type: ['line', 'bar']
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                grid: {
+                    y: 80,
+                    y2: 30
+                },
+                xAxis: [{
+                    type: 'value',
+                    position: 'top',
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed'
+                        }
+                    },
+                }],
+                yAxis: [{
+                    type: 'category',
+                    axisLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    data: ['房價', '與0050隔天收盤價', '美元指數', '核心物價', '非農就業人口數', '實質GDP季度年增率']
+                }],
+                series: [{
+                    name: '相關係數',
+                    type: 'bar',
+                    stack: '总量',
+                    itemStyle: {
+                        normal: {
+                            color: 'blue',
+                            borderRadius: 5,
+                            label: {
+                                show: true,
+                                position: 'left',
+                                formatter: '{b}'
+                            }
+                        }
+                    },
+                    data: [{
+                        value: 0.666,
+                        itemStyle: labelLeft
+                    }, {
+                        value: 0.788,
+                        itemStyle: labelLeft
+                    }, {
+                        value: 0.652,
+                        itemStyle: labelLeft
+                    }, {
+                        value: -0.275,
+                        itemStyle: labelLeft
+                    }, {
+                        value: 0.68,
+                        itemStyle: labelLeft
+                    }, {
+                        value: 0.62,
+                        itemStyle: labelLeft
+                    }, ]
+                }]
+            };
             myChart.setOption(option);
         }
     );
