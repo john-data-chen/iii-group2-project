@@ -1,7 +1,7 @@
 #! coding=UTF-8
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為抓取證交所0050及其成分股共51支股票從2015年最新的每月股價資料
 # 以附加模式寫入2004~2014的資料最下端
-__author__ = 'john.chen'
 
 import requests, time, os
 from bs4 import BeautifulSoup
@@ -24,7 +24,7 @@ for stock in group:   # 每個代碼新建一個txt
     bid_detail=open("TWSE_Stocks/" + format(stock) + "_bid_detail.txt",'a') # 改為'a'附加模式，2015的資料寫在最後
     print "現在處理的是" + stock
     for year in range(2015,2016): # 2015年
-        for a in range(1,4): # 現在是3月
+        for a in range(1,5): # 現在是4月
             if a < 10: # 如果是1~9月前面加0，01~09
                 month = "0" + str(a)
             else:

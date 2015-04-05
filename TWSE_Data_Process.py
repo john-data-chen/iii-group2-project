@@ -1,6 +1,6 @@
 # coding=utf-8
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為整理已抓到最新的每日股價資料所需要的欄位後另存新檔
-__author__ = 'john.chen'
 
 import os
 

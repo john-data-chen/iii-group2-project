@@ -1,7 +1,7 @@
 #! coding=UTF-8
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為抓取證交所0050及其成分股共51支股票從2004~2014年每日的股價資料
 # 2015年的資料請改用2015_append.py 抓最新的月資料，2015_update_newest是最新的日資料
-__author__ = 'john.chen'
 
 import requests, time, os
 from bs4 import BeautifulSoup

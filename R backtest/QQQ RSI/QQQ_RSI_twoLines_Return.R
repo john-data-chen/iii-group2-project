@@ -1,3 +1,4 @@
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為分析QQQ在RSI 2條線交叉策略下的報酬率
 
 # 載入RODBC

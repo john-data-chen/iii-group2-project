@@ -1,7 +1,7 @@
 # coding=utf-8
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為整理已抓到最新的每日股價資料所需要的欄位後另存新檔
 # 改版目的：可讀取0050_ticker_list.csv中的股號，成分股若變動只需改csv，不用改程式
-__author__ = 'john.chen'
 
 import os
 

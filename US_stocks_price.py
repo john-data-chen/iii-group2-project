@@ -1,6 +1,6 @@
 # coding=utf-8
+# 撰寫人：陳建安 (John Chen) 聯絡信箱：john.data.chen@facebook.com
 # 本程式目的為抓取美股每日的股價資料
-__author__ = 'john.chen'
 
 import time, os
 import urllib2
@@ -25,7 +25,7 @@ e = toDay (兩位數，1~9前要加0)
 f = toYear
 """
 url_part1 = 'http://ichart.finance.yahoo.com/table.csv?s='
-url_part2 = '&d=2&e=09&f=2015&g=d&a=0&b=01&c=2004&ignore=.csv'
+url_part2 = '&d=3&e=05&f=2015&g=d&a=0&b=01&c=2009&ignore=.csv'
 
 # 新增全域變數給檔案處理
 global f
